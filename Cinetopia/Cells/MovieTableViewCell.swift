@@ -64,7 +64,8 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func configureCell(movie: Movie) {
-        let url = URL(string: movie.posterPath)
+        let urlString = "https://image.tmdb.org/t/p/w500\(movie.posterPath)"
+        let url = URL(string: urlString)
         moviePosterImageView.kf.setImage(with: url)
         movieTitleLabel.text = movie.title
         movieReleaseDateLabel.text = "Lançamento: \(movie.releaseDate)"
