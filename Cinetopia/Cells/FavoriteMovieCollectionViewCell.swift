@@ -80,7 +80,7 @@ class FavoriteMovieCollectionViewCell: UICollectionViewCell {
     }
     
     func setupView(_ movie: Movie) {
-        let url = URL(string: movie.image)
+        let url = URL(string: movie.posterPath)
         moviePosterImageView.kf.setImage(with: url)
         
         movieTitleLabel.text = movie.title

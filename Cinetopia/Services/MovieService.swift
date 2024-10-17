@@ -16,7 +16,8 @@ enum MovieServiceError: Error {
 struct MovieService {
     func getMovies() async throws -> [Movie] {
         
-        let urlString = "http://localhost:3000/movies"
+        let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=7f90c16b1428bbd2961cbdfd637dba99"
+        
         guard let url = URL(string: urlString) else {
             throw MovieServiceError.invalidURL
         }
@@ -28,8 +29,8 @@ struct MovieService {
         }
         
         do {
-            let movies = try JSONDecoder().decode([Movie].self, from: data)
-            return movies
+            let movies = try JSONDecoder().decode(MovieList.self, from: data)
+            return movies.results
         } catch (let error) {
             print(error)
             throw MovieServiceError.decodingError

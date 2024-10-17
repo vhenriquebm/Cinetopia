@@ -64,7 +64,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func configureCell(movie: Movie) {
-        let url = URL(string: movie.image)
+        let url = URL(string: movie.posterPath)
         moviePosterImageView.kf.setImage(with: url)
         movieTitleLabel.text = movie.title
         movieReleaseDateLabel.text = "Lançamento: \(movie.releaseDate)"
@@ -72,11 +72,11 @@ class MovieTableViewCell: UITableViewCell {
         let heart = UIImage(systemName: "heart")?.withTintColor(.buttonBackground, renderingMode: .alwaysOriginal)
         let heartFill = UIImage(systemName: "heart.fill")?.withTintColor(.buttonBackground, renderingMode: .alwaysOriginal)
         
-        if movie.isSelected ?? false {
-            favoriteButton.setImage(heartFill, for: .normal)
-        } else {
-            favoriteButton.setImage(heart, for: .normal)
-        }
+     //   if movie.isSelected ?? false {
+      //      favoriteButton.setImage(heartFill, for: .normal)
+      //  } else {
+       //     favoriteButton.setImage(heart, for: .normal)
+        //}
     }
     
     private func addSubviews() {

@@ -108,7 +108,7 @@ extension FavoriteMoviesViewController: FavoriteMovieCollectionViewCellDelegate 
         }
         
         let selectedMovie = MovieManager.shared.favoritesMovies[indexPath.item]
-        selectedMovie.changeSelectionStatus()
+       // selectedMovie.changeSelectionStatus()
         
         MovieManager.shared.remove(selectedMovie)
         collectionView.reloadData()

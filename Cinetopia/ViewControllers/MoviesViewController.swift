@@ -144,7 +144,7 @@ extension MoviesViewController: MovieTableViewCellDelegate {
         }
         
         let selectedMovie = movies[indexPath.row]
-        selectedMovie.changeSelectionStatus()
+       // selectedMovie.changeSelectionStatus()
         
         MovieManager.shared.add(selectedMovie)
         tableView.reloadRows(at: [indexPath], with: .automatic)

@@ -27,7 +27,7 @@ class MovieDetailsViewController: UIViewController {
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.layer.cornerRadius = 32.0
         imgView.layer.masksToBounds = true
-        let url = URL(string: movie.image)
+        let url = URL(string: movie.posterPath)
         imgView.kf.setImage(with: url)
         return imgView
     }()
@@ -35,7 +35,7 @@ class MovieDetailsViewController: UIViewController {
     private lazy var userRatingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Classificação dos usuários: \(movie.rate)"
+        label.text = "Classificação dos usuários: \(movie.voteAverage)"
         label.numberOfLines = 0
         label.textColor = .white
         label.font = .systemFont(ofSize: 16.0, weight: .bold)
@@ -47,7 +47,7 @@ class MovieDetailsViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .white.withAlphaComponent(0.75)
-        label.text = movie.synopsis
+        label.text = movie.overview
         return label
     }()
     
