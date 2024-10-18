@@ -15,6 +15,7 @@
 		204B6CE5C0CD14A6EA27A012 /* Pods_Cinetopia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53820300594BB1607B770497 /* Pods_Cinetopia.framework */; };
 		42C563032CC197CC008831E4 /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C563022CC197CC008831E4 /* MoviesView.swift */; };
 		42C563062CC1A6BB008831E4 /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C563052CC1A6BB008831E4 /* MoviesPresenter.swift */; };
+		42C563092CC1ECD0008831E4 /* MoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C563082CC1ECD0008831E4 /* MoviesInteractor.swift */; };
 		480C2CDC2AF089A900E8C875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C2CDB2AF089A900E8C875 /* AppDelegate.swift */; };
 		480C2CDE2AF089A900E8C875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C2CDD2AF089A900E8C875 /* SceneDelegate.swift */; };
 		480C2CE02AF089A900E8C875 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480C2CDF2AF089A900E8C875 /* HomeViewController.swift */; };
@@ -36,6 +37,7 @@
 		42364B9581169B566732C7C4 /* Pods-Cinetopia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinetopia.debug.xcconfig"; path = "Target Support Files/Pods-Cinetopia/Pods-Cinetopia.debug.xcconfig"; sourceTree = "<group>"; };
 		42C563022CC197CC008831E4 /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
 		42C563052CC1A6BB008831E4 /* MoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenter.swift; sourceTree = "<group>"; };
+		42C563082CC1ECD0008831E4 /* MoviesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInteractor.swift; sourceTree = "<group>"; };
 		480C2CD82AF089A900E8C875 /* Cinetopia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinetopia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		480C2CDB2AF089A900E8C875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		480C2CDD2AF089A900E8C875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		42C563072CC1ECBC008831E4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				42C563082CC1ECD0008831E4 /* MoviesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		480C2CCF2AF089A900E8C875 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		480C2CDA2AF089A900E8C875 /* Cinetopia */ = {
 			isa = PBXGroup;
 			children = (
+				42C563072CC1ECBC008831E4 /* Interactor */,
 				42C563042CC1A6AD008831E4 /* Presenter */,
 				48B7D9E02AF2E71D001EBED0 /* Services */,
 				48AE715E2AF1975C002E4E8A /* Cells */,
@@ -293,6 +304,7 @@
 				48B7D9E22AF2E725001EBED0 /* MovieService.swift in Sources */,
 				48AE715D2AF1963A002E4E8A /* Movie.swift in Sources */,
 				42C563062CC1A6BB008831E4 /* MoviesPresenter.swift in Sources */,
+				42C563092CC1ECD0008831E4 /* MoviesInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

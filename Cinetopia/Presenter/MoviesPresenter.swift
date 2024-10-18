@@ -10,7 +10,6 @@ import UIKit
 protocol MoviesPresenterToViewProtocol: AnyObject {
     func didSelect(movie: Movie)
     func didSelectFavoriteButton(_ movie: Movie)
-    func didSearchText()
     func didSearchTextsearchBar(_ searchBar: UISearchBar, textDidChange searchText: String, _ movies: [Movie], _ filteredMovies: inout [Movie])
     
 }
@@ -24,10 +23,11 @@ protocol MoviesPresenterToViewControllerProtocol: AnyObject {
 class MoviesPresenter: MoviesPresenterToViewControllerProtocol {
     private var controller: MoviesViewControllerToPresenterProtocol?
     private var view: MoviesViewProtocol?
-    private var movieService: MovieService = MovieService()
+    private var interactor: MoviesPresenterToInteractor?
     
-    init(view: MoviesViewProtocol?) {
+    init(view: MoviesViewProtocol?, interactor: MoviesPresenterToInteractor?) {
         self.view = view
+        self.interactor = interactor
     }
     
     func setViewController(_ viewController: any MoviesViewControllerToPresenterProtocol) {
@@ -48,12 +48,14 @@ class MoviesPresenter: MoviesPresenterToViewControllerProtocol {
     
     private func fetchMovies() async {
         do {
-            let movies = try await movieService.getMovies()
+            guard let movies = try await interactor?.fetchMovies() else { return }
             view?.setupView(with: movies)
             view?.reloadData()
-        } catch (let error) {
+        } catch {
             print(error)
         }
+        
+       
     }
 }
 
@@ -65,12 +67,10 @@ extension MoviesPresenter: MoviesPresenterToViewProtocol {
     
     func didSelectFavoriteButton(_ movie: Movie) {
         // movie.changeSelectionStatus()
-        MovieManager.shared.add(selectedMovie)
+        MovieManager.shared.add(movie)
     }
     
-    func didSearchText() {
-        
-    }
+   
     
     func didSearchTextsearchBar(_ searchBar: UISearchBar, textDidChange searchText: String, _ movies: [Movie], _ filteredMovies: inout [Movie]) {
         if searchText.isEmpty {
