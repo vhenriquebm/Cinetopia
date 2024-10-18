@@ -20,7 +20,9 @@ class TabBarController: UITabBarController {
     // MARK: - Class methods
     
     private func setupTabBarController() {
-        let home = UINavigationController(rootViewController: MoviesViewController())
+        let view = MoviesView()
+        let presenter = MoviesPresenter(view: view)
+        let home = UINavigationController(rootViewController: MoviesViewController(view: view, presenter: presenter))
         let symbolConfiguration = UIImage.SymbolConfiguration(scale: .medium)
         
         let homeSymbol = UIImage(systemName: "film", withConfiguration: symbolConfiguration)
